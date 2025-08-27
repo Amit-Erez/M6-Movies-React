@@ -1,0 +1,25 @@
+import React from "react";
+import "./MovieCard.css";
+import movieposter from '../assets/movieposter.jpg'
+import { Link } from "react-router-dom";
+
+const MovieCard = ({ title, year, poster }) => {
+  return (
+    <div className="movie">
+      <div className="movie__card">
+        <figure className="movie__poster--wrapper">
+          <Link>
+            <img src={poster} className="movie__poster" alt="" />
+          </Link>
+          <div className="poster__wrapper--after">
+            <p className="more__info">More Info</p>
+          </div>
+        </figure>
+        <h3 className="movie__title">{title}</h3>
+        <p className="movie__year">{year}</p>
+      </div>
+    </div>
+  );
+};
+
+export default MovieCard;
