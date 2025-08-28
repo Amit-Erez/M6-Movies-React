@@ -33,7 +33,8 @@ const Results = () => {
     if (query) {
       setShowSpinner(true);
       getMovies(query);
-      setTimeout(() => setShowSpinner(false), 500);
+      const timeout = setTimeout(() => setShowSpinner(false), 500);
+      return () => clearTimeout(timeout);
     }
   }, []);
 
@@ -140,7 +141,7 @@ const Results = () => {
                 <div className="movies__list">
                   <>
                     {movies.map((movie) => (
-                      <div className="movie">
+                      <div className="movie" key={movie.Id}>
                         <div className="skeleton__card">
                           <div className="poster__skeleton"></div>
                           <div className="title__skeleton">
