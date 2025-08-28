@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   margin-bottom: 36px;
-
 }
 
 .movie__card {
@@ -19,6 +18,7 @@
   flex-direction: column;
   justify-content: left;
 }
+
 
 .movie__poster--wrapper {
     position: relative;

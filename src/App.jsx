@@ -6,7 +6,6 @@ import Info from './pages/Info/Info'
 import Nav from './components/Nav'
 
 const App = () => {
-
   
 
   return (

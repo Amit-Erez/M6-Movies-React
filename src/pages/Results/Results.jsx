@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Results.css";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FilmHeader from "../../assets/FilmHeader.jpg";
 import Nav from "../../components/Nav";
-import ResultsTitle from "../../components/ResultsTitle";
 import MovieCard from "../../components/MovieCard";
-import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 
 const Results = () => {
+  const [showSpinner, setShowSpinner] = useState(false);
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [filter, setFilter] = useState("DEFAULT");
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("query");
 
   async function getMovies(entry) {
     {
@@ -20,10 +22,28 @@ const Results = () => {
       );
       const firstsix = data.Search.slice(0, 6);
       setMovies(firstsix);
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
       setFilter("DEFAULT");
-      setLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (query) {
+      setShowSpinner(true);
+      getMovies(query);
+      setTimeout(() => setShowSpinner(false), 500);
+    }
+  }, []);
+
+  const [entry, setEntry] = useState("");
+
+  function onSearchKeyPress(key) {
+    key === "Enter" && getMovies(entry);
+  }
+
+  const [filter, setFilter] = useState("DEFAULT");
 
   function filterMovies(filter) {
     if (filter === "Old_to_New") {
@@ -53,11 +73,37 @@ const Results = () => {
     );
   }
 
-  return (
+  return showSpinner ? (
+    <>
+      <figure className="bg__img--wrapper">
+        <img src={FilmHeader} className="bg__img .image-fade-bottom" alt="" />
+      </figure>
+      <div className="loading__spinner">
+        <FontAwesomeIcon icon="fa-solid fa-spinner" />
+      </div>
+    </>
+  ) : (
     <div>
       <header>
         <Nav />
-        <ResultsTitle onSearch={getMovies} />
+        <div className="ResultsTitle__content">
+          <h1 className="ResultsTitle__content--title">Browse our movies</h1>
+          <div className="input-wrap">
+            <input
+              type="text"
+              value={entry}
+              onChange={(e) => setEntry(e.target.value)}
+              onKeyDown={(e) => onSearchKeyPress(e.key)}
+              placeholder="Search by movie title or keyword"
+            />
+            <div className="search-wrapper">
+              <FontAwesomeIcon
+                icon="fa-solid fa-magnifying-glass"
+                onClick={() => getMovies(entry)}
+              />
+            </div>
+          </div>
+        </div>
         <figure className="bg__img--wrapper">
           <img src={FilmHeader} className="bg__img .image-fade-bottom" alt="" />
         </figure>
@@ -91,7 +137,23 @@ const Results = () => {
             </div>
             <div className="movies__list--container">
               {loading ? (
-                <FontAwesomeIcon icon="fa-solid fa-spinner movies__loading--spinner" />
+                <div className="movies__list">
+                  <>
+                    {movies.map((movie) => (
+                      <div className="movie">
+                        <div className="skeleton__card">
+                          <div className="poster__skeleton"></div>
+                          <div className="title__skeleton">
+                            <div className="title__skeleton--para"></div>
+                          </div>
+                          <div className="year__skeleton">
+                            <div className="year__skeleton--para"></div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                </div>
               ) : (
                 <div className="movies__list">{showResults()}</div>
               )}
@@ -104,3 +166,7 @@ const Results = () => {
 };
 
 export default Results;
+
+{
+  /* <FontAwesomeIcon icon="fa-solid fa-spinner movies__loading--spinner" /> */
+}

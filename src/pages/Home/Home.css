@@ -23,7 +23,19 @@ position: absolute;
 width: 600px;
 top: 50%;
 overflow: hidden;
-box-shadow: 0 0 60px rgba(255, 250, 206, 0.726);
+animation: pulse-shadow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 30px rgba(255, 250, 206, 0.726);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 250, 206, 0.726);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(255, 250, 206, 0.726);
+  }
 }
 
 .marquee__img--wrapper {
@@ -47,10 +59,22 @@ letter-spacing: 0.01ch;
 text-shadow: 1px 1px 0 #0000008f, -1px -1px 0 #ffffff94;
 }
 
-
 .marquee__img {
 width: 100%;
 padding: 0;
+animation: pulse-brightness 2s infinite ease-in-out;
+}
+
+@keyframes pulse-brightness {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(150%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
 }
 
 .input--wrap {
@@ -72,9 +96,35 @@ bottom: 0;
 right: 0;
 z-index: 10000;
 padding: 0 20px 0 8px;
-color: black;
+color: #6030b1;
 font-size: 24px;
 transition: all .2s ease;
 display: flex;
 align-items: center;
 }
+
+input {
+color: rgba(0, 0, 0, .87);
+width: 100%;
+max-width: 800px;
+height: 60px;
+font-size: 20px;
+padding-left: 20px;
+border-color: transparent;
+}
+
+input:focus,
+#filter:focus {
+outline: none;
+}
+
+.fa-magnifying-glass {
+transition: 300ms all ease;
+font-weight: 700;
+}
+
+.fa-magnifying-glass:hover {
+color: #ff328f;
+transform: scale(1.1);
+}
+

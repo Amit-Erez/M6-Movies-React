@@ -26,7 +26,7 @@ mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
-.title__content {
+.ResultsTitle__content {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -37,7 +37,7 @@ max-width: 1200px;
 z-index: 10000;
 }
 
-.title__content--title {
+.ResultsTitle__content--title {
 font-weight: 500;
 letter-spacing: 2px;
 text-align: center;
@@ -156,22 +156,117 @@ RESULTS SECTION
   justify-content: center;
 }
 
+.movie {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.skeleton__card {
+  background-color: lightgrey;
+  margin: 10px;
+  border-radius: 10px;
+  width: 224px;
+  height: 368px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.poster__skeleton {
+  /* background-color: rgb(153, 153, 153); */
+ background: linear-gradient(
+    90deg,
+ #a7a7a794 25%,
+ #f5f5f5 50%,
+ #e0e0e0 75%);
+background-size: 200% 100%;
+  border-radius: 10px;
+  width: 210px;
+  height: 320px;
+  margin: 8px 0 6px 0;
+  animation: shimmer 1.5s infinite;
+}
+
+.title__skeleton {
+    background: transparent;
+    width: 100%;
+    height: 24px;
+    padding-left: 8px;
+}
+
+.title__skeleton--para {
+    width: 70%;
+    height: 18px;
+    background: linear-gradient(
+    90deg,
+ #a7a7a794 25%,
+ #f5f5f5 50%,
+ #e0e0e0 75%);
+background-size: 200% 100%; 
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+}
+
+.year__skeleton {
+    background: transparent;
+    width: 100%;
+    height: 24px;
+    padding-left: 8px;
+    margin-bottom: 2px;
+}
+
+.year__skeleton--para {
+    width: 40%;
+    height: 18px;
+    background: linear-gradient(
+    90deg,
+ #a7a7a794 25%,
+ #f5f5f5 50%,
+ #e0e0e0 75%);
+background-size: 200% 100%;
+    padding-left: 20px;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.loading__spinner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
 .fa-spinner {
-    color: #fffbf8;
-    z-index: 300000;
-    animation: rotate 600ms infinite linear;
+  font-size: 70px;
+  color: #fffbf8;
+  z-index: 300000;
+  animation: rotate 600ms infinite linear;
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(0);
-    }
+  0% {
+      transform: rotate(0);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+      transform: rotate(360deg);
+  }
 }
-
 @media (max-width: 1100px) {
     .movie {
         width: calc(100% / 3)
