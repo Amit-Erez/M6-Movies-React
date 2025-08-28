@@ -1,3 +1,7 @@
+/* body {
+    background-color: #3f1431e0;
+} */
+
 header {
 height: 360px;
 padding: 40px 40px;
@@ -14,7 +18,7 @@ width: 100%;
 }
 
 .bg__img {
-width: 100%;    
+/* width: 100%;     */
 max-width: 1920px;
 opacity: 0.3;
 z-index: 0;
