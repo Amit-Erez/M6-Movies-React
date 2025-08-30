@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
       <nav className="navbar">
-        <figure className="amit__logo--wrapper">
           <Link to={"/"}>
+        <figure className="amit__logo--wrapper">
             <img className="amit__logo" src={Logo} alt="" />
-          </Link>
         </figure>
+          </Link>
         <ul className="nav__link--list">
           <li className="nav__link">
             <Link to="/" className="nav__link--anchor link__hover-effect home">

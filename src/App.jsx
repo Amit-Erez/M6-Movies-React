@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Results from './pages/Results/Results'
 import Info from './pages/Info/Info'
-import Nav from './components/Nav'
 
 const App = () => {
   
@@ -13,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/findmovie' element={<Results />}/>
-        <Route path='/movieinfo' element={<Info />}/>
+        <Route path='/info/:id' element={<Info />}/>
       </Routes>
     </div>
   )

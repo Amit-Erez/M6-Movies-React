@@ -18,12 +18,11 @@ width: 100%;
 }
 
 .bg__img {
-/* width: 100%;     */
 max-width: 1920px;
 opacity: 0.3;
 z-index: 0;
 mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  /* -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); */
 }
 
 .ResultsTitle__content {

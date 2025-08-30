@@ -22,6 +22,7 @@ const Home = () => {
   return  (
     <>
       <header>
+        <Nav />
         <figure className="homebg__img--wrapper">
           <img
             src={curtain}
@@ -54,7 +55,6 @@ const Home = () => {
             </div>
           </figure>
         </div>
-        <Nav />
       </header>
     </>
   );

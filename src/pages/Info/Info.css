@@ -1,0 +1,152 @@
+
+.info__header {
+height: 128px;
+padding: 40px 40px;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+}
+
+.info__container {
+  padding-top: 25px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.back__arrow--box {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ max-width: 1100px;
+ z-index: 3;
+ margin-bottom: 16px;
+}
+
+.back__arrow--wrapper {
+  cursor: pointer;
+  margin-right: 12px;
+  transition: all 300ms ease;
+}
+
+.back__arrow--img {
+  color: white;
+  font-size: 32px;
+  transition: all 300ms ease;
+}
+
+.back__arrow--wrapper:hover,
+.back__arrow--img:hover {
+ transform: scale(1.1);
+ color: #fabf2a;
+}
+
+.movie__selected--box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie__selected {
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.685);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 1100px;
+  box-shadow: 0 0 10px 5px rgba(255, 250, 206, 0.089)
+
+}
+
+.movie__selected--figure {
+  width: 40%;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.685);
+}
+
+.movie__selected--figureImg {
+  max-width: 100%;
+  max-height: 500px;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.movie__selected--description {
+  color: white;  
+  width: 60%;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.685);
+}
+
+.movie__selected--title {
+    font-size: 32px;
+}
+
+.movie__selected--rating {
+    color: #fabf2a;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.movie__selected--details {
+    display: flex;
+    margin-top: 8px;
+    justify-content: space-between;
+}
+
+.movie__selected--details p {
+ margin-right: 12px;
+ font-size: 14px;
+}
+
+.lang {
+  max-width: 250px;
+}
+
+.movie__selected--plot {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.movie__plot--title {
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.movie__plot--para {
+  margin-bottom: 16px;
+  line-height: 1.5;
+  padding-right: 32px;
+}
+
+.info__btns {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.btn {
+    background-color: #835ad6;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor:not-allowed;
+    width: 88px;
+    transition: all 300ms ease;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+    background-color: #9371d8;
+}

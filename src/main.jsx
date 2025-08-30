@@ -5,9 +5,9 @@ import App from './App.jsx'
 import { BrowserRouter as Router } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faSpinner, faStar, faStarHalfStroke, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faMagnifyingGlass, faSpinner)
+library.add(faMagnifyingGlass, faSpinner, faStar, faStarHalfStroke, faArrowLeft)
 
 
 createRoot(document.getElementById('root')).render(

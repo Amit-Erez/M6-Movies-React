@@ -36,6 +36,7 @@ const Results = () => {
       const timeout = setTimeout(() => setShowSpinner(false), 500);
       return () => clearTimeout(timeout);
     }
+    
   }, []);
 
   const [entry, setEntry] = useState("");
@@ -47,6 +48,7 @@ const Results = () => {
   const [filter, setFilter] = useState("DEFAULT");
 
   function filterMovies(filter) {
+    console.log(movies)
     if (filter === "Old_to_New") {
       setMovies(movies.slice().sort((a, b) => a.Year - b.Year));
     } else if (filter === "New_to_Old") {
@@ -67,7 +69,8 @@ const Results = () => {
             title={movie.Title}
             year={movie.Year}
             poster={movie.Poster}
-            key={movie.imdbID}
+            id={movie.imdbID}
+            key={movie.Poster}
           />
         ))}
       </>
@@ -141,7 +144,7 @@ const Results = () => {
                 <div className="movies__list">
                   <>
                     {movies.map((movie) => (
-                      <div className="movie" key={movie.Id}>
+                      <div className="movie" key={movie.Title}>
                         <div className="skeleton__card">
                           <div className="poster__skeleton"></div>
                           <div className="title__skeleton">
@@ -169,5 +172,4 @@ const Results = () => {
 export default Results;
 
 {
-  /* <FontAwesomeIcon icon="fa-solid fa-spinner movies__loading--spinner" /> */
 }
